@@ -5,6 +5,13 @@ import TodoList from "./TodoList";
 export default () => {
     const [todos, setTasks] = useState([]);
 
+fetch('https://dummyjson.com/image/400x200/282828')
+.then(response => response.blob()) 
+.then(blob => {
+  console.log('Fetched image blob:', blob);
+})
+
+
     useEffect(() => {
         axios.get("https://dummyjson.com/todos")
             .then((response) => setTasks(response.data.todos));
